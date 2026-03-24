@@ -1,7 +1,7 @@
 from config.config import FILES
 from src.ingestion.load_data import load_csv
-from src.utils.logger import setup_logger
-setup_logger()
+from src.utils.logger import get_logger
+logger = get_logger(__name__)
 
 def main():
   data = {}

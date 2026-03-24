@@ -1,16 +1,18 @@
 import pandas as pd
-import logging
+from src.utils.logger import get_logger
 
-logging.basicConfig(level=logging.INFO)
+
+logger = get_logger(__name__)
+logger.info("Loading file...")
 
 def load_csv(file_path):
   try:
-    logging.info(f'Loading file: {file_path}')
+    logger.info(f'Loading file: {file_path}')
     df = pd.read_csv(file_path)
     if df.empty:
       raise ValueError('Empty Dataset')
-    logging.info(f'Loaded Shape: {df.shape}')
+    logger.info(f'Loaded Shape: {df.shape}')
     return df
   except Exception as e:
-    logging.error(f'Error Loading File {file_path}: {e}')
+    logger.error(f'Error Loading File {file_path}: {e}')
     raise
