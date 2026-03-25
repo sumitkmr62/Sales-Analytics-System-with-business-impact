@@ -20,6 +20,8 @@ null_rules:
     - oppurtunity_id
     - sales_agent
     - close_value
+    - deal_stage
+    - close_value
 
   sales_teams:
     - sales_agent

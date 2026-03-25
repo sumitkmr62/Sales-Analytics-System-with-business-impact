@@ -1,9 +1,11 @@
 from config.config import FILES
-from src.ingestion.load_data import load_csv
+from ingestion.data_loader import load_csv
+from src.validation.data_validator import DataValidator
 from src.utils.logger import get_logger
+
 logger = get_logger(__name__)
 
-def main():
+def run_pipeline():
   data = {}
 
   for name,path in FILES.items():
