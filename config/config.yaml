@@ -1,3 +1,27 @@
 data_paths:
   sales_pipeline: data/raw/sales_pipeline.csv
   sales_teams: data/raw/sales_teams.csv
+
+schema:
+  sales_pipeline:
+    - oppurtunity_id
+    - sales_agent
+    - product
+    - deal_stage
+    - close_value
+
+  sales_teams:
+    - sales_agent
+    - manager
+    - region
+
+null_rules:
+  sales_pipeline:
+    - oppurtunity_id
+    - sales_agent
+    - close_value
+    - deal_stage
+    - close_value
+
+  sales_teams:
+    - sales_agent

@@ -5,7 +5,7 @@ from src.utils.logger import get_logger
 logger = get_logger(__name__)
 logger.info("Loading file...")
 
-def load_csv(file_path):
+def DataLoader(file_path):
   try:
     logger.info(f'Loading file: {file_path}')
     df = pd.read_csv(file_path)
