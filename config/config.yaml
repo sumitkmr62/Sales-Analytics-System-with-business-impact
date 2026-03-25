@@ -1,23 +1,42 @@
 data_paths:
   sales_pipeline: data/raw/sales_pipeline.csv
   sales_teams: data/raw/sales_teams.csv
+  products: data/raw/products.csv
+  accounts: data/raw/accounts.csv
 
 schema:
   sales_pipeline:
-    - oppurtunity_id
+    - opportunity_id
     - sales_agent
     - product
+    - account
     - deal_stage
+    - engage_date
+    - close_date
     - close_value
 
   sales_teams:
     - sales_agent
     - manager
-    - region
+    - regional_office
+
+  products:
+    - product
+    - series
+    - sales_price
+
+  accounts:
+    - account
+    - sector
+    - year_established
+    - revenue
+    - employees
+    - office_location
+    - subsidiary_of
 
 null_rules:
   sales_pipeline:
-    - oppurtunity_id
+    - opportunity_id
     - sales_agent
     - close_value
     - deal_stage
@@ -25,3 +44,11 @@ null_rules:
 
   sales_teams:
     - sales_agent
+
+business_rules:
+  sales_pipeline:
+    close_value:
+      rule: "not-null-if"
+      condition_column: "deal_stage"
+      conditio_value: "Won"
+      severity: "error"
