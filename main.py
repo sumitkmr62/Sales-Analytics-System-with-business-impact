@@ -1,5 +1,6 @@
 from src.ingestion.data_loader import load_csv
 from src.validation.data_validator import DataValidator
+from src.transformation.transformer import DataTransformer
 from src.utils.logger import get_logger
 from config.config_loader import load_config
 
@@ -35,7 +36,9 @@ def run_pipeline():
     logger.info('Data validation completed')
     
     #----Transformation----
-    logger.info('Transformation step (pending)')
+    transformer = DataTransformer(data)
+    final_df = transformer.run_all_transformations()
+    logger.info(f'Final dataset shape: {final_df.shape}')
 
     logger.info('Pipeline executed successfully')
 
