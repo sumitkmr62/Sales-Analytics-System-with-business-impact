@@ -1,9 +1,7 @@
 import pandas as pd
 from src.utils.logger import get_logger
 
-
 logger = get_logger(__name__)
-logger.info("Loading file...")
 
 def load_csv(file_path):
   try:
